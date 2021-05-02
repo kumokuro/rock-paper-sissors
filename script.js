@@ -1,7 +1,7 @@
 
     let randomNum = Math.round(Math.random() * (2));
 
-    // The computer's turn 
+    // the computer's turn 
     function computerPlay() {
       if (randomNum === 0) {
         return "rock";
@@ -14,31 +14,57 @@
       }
     }
 
+    // variables
     let computerChoice = computerPlay();
-    let playerChoice = prompt("Choose one: Rock, paper, or scissors?");
+    let playerChoice = prompt("Choose one: Rock, paper, or scissors?"); 
+    let playerWins = 0;
+    let computerWins = 0;
+    let round = 1;
 
-    // One game of rock, paper, sissors 
+    // one game of rock, paper, sissors 
     function playRound(playerChoice, computerChoice) {
-        if (playerChoice === computerChoice) {
+        if (playerChoice.toLowerCase() === computerChoice.toLowerCase()) {
+            round++;
             return "It's a tie!";
         }
         else if (playerChoice === "rock" && computerChoice === "scissors") {
-            return "Player wins!";
+            playerWins++, round++;
+            return "Rock beats scissors! Player wins!";
         }
         else if (playerChoice === "paper" && computerChoice === "scissors") {
-            return "Computer wins!";
+            computerWins++, round++;
+            return "Scissors beats paper! Computer wins!";
         }
         else if (playerChoice === "scissors" && computerChoice === "rock") {
-            return "Computer wins!";
+            computerWins++, round++;
+            return "Rock beats scissors! Computer wins!";
         }
         else if (playerChoice === "rock" && computerChoice === "paper") {
-            return "Computer wins!";
+            computerWins++, round++;
+            return "Paper beats rock! Computer wins!";
         }
         else if (playerChoice === "paper" && computerChoice === "rock") {
-            return "Computer wins!";
+            computerWins++, round++;
+            return "Rock beats paper! Computer wins!";
         }
         else if (playerChoice === "scissors" && computerChoice === "paper") {
-            return "Player wins!";
+            playerWins++, round++;
+            return "Scissors beats paper! Player wins!";
         }
     }
-    console.log(playRound(playerChoice, computerChoice));
+
+    // 5 round game 
+    function game(playerChoice, computerChoice) {
+            // scoreboard
+            let message = `Round ${round}. SCORE [Player: ${playerWins}] [Computer: ${computerWins}]`;
+
+            // game 
+            console.log(message);
+            console.log(playRound(playerChoice, computerChoice));
+    }
+
+    console.log(game(playerChoice, computerChoice));
+    console.log(game(playerChoice, computerChoice));
+    console.log(game(playerChoice, computerChoice));
+    console.log(game(playerChoice, computerChoice));
+    console.log(game(playerChoice, computerChoice));
