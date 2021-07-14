@@ -1,0 +1,40 @@
+body {
+  background-color: #30475e;
+  font-family: "Roboto", sans-serif;
+  color: #dddddd;
+  text-align: center;
+}
+
+h1 {
+  font-family: "Jomhuria", cursive;
+  font-size: 8em;
+  margin: 0.5em auto 0 auto;
+}
+
+h2 {
+  margin: 0 auto 1.2em auto;
+  font-size: 2em;
+}
+
+.card {
+  background-color: #222831;
+  height: 10em;
+  padding-top: 8em;
+  width: 50em;
+  margin: auto;
+  border: solid #f05454;
+}
+
+.btn {
+  padding: 10px 25px;
+  margin: 0 10px;
+  border: none;
+  border-radius: 7px;
+  font-size: 1.5em;
+}
+
+.btn:hover {
+  background-image: none;
+  background-color: #f05454;
+  color: #dddddd;
+}

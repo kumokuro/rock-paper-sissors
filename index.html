@@ -1,11 +1,35 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Page Title</title>
-  <meta charset="UTF-8"/>
-</head>
-<body>
-    <h1>Rock, Paper, Sissors</h1>
-    <script src="script.js"></script>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jomhuria&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <title>rock, paper, scissors</title>
+  </head>
+
+  <body>
+    <h1>Rock, Paper, Scissors!</h1>
+    <h2 class="round">Round</h2>
+    <!-- Score card -->
+    <div class="scores">
+      <h3 class="player-score">Player:</h3>
+      <h3 class="computer-score">Computer:</h3>
+    </div>
+    <!-- Main card -->
+    <div class="card">
+      <button class="btn" id="rock">rock</button>
+      <button class="btn" id="paper">paper</button>
+      <button class="btn" id="scissors">scissors</button>
+    </div>
+    <h2 class="outcome">Make your decision!</h2>
+  </body>
+  <script src="v4.js"></script>
 </html>
