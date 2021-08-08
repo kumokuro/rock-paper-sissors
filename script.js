@@ -1,60 +1,75 @@
-// random number to determine computer's turn
-let randomNum = Math.round(Math.random() * 2);
 
-// the computer's turn
-function computerPlay() {
-  if (randomNum === 0) {
-    return "rock";
-  } else if (randomNum === 1) {
-    return "paper";
-  } else if (randomNum === 2) {
-    return "scissors";
-  }
-}
+const updateScore = () => {
+    const playerScore = document.querySelector(".player-score");
+    const computerScore = document.querySelector(".computer-score");
+    const rounds = document.querySelector(".round");
+    playerScore.textContent = `Player: ${pScore}`;
+    computerScore.textContent = `Computer: ${cScore}`;
+    rounds.textContent = `Round ${round}`;
+  };
 
-// variables
-let computerChoice = computerPlay();
-let playerChoice = document.getElementById;
-let playerWins = 0;
-let computerWins = 0;
-let round = 1;
+  const compareHands = (playerChoice, computerChoice) => {
+    //Update Text
+    const outcome = document.querySelector(".outcome");
+    //Checking for a tie
+    if (playerChoice === computerChoice) {
+      outcome.textContent = "It is a tie";
+      round++;
+      return;
+    }
+    //Check for Rock
+    if (playerChoice === "rock") {
+      if (computerChoice === "scissors") {
+        outcome.textContent = "Player Wins";
+        pScore++;
+        round++;
+        updateScore();
+        return;
+      } else {
+        outcome.textContent = "Computer Wins";
+        cScore++;
+        round++;
+        updateScore();
+        return;
+      }
+    }
+    //Check for Paper
+    if (playerChoice === "paper") {
+      if (computerChoice === "scissors") {
+        outcome.textContent = "Computer Wins";
+        cScore++;
+        round++;
+        updateScore();
+        return;
+      } else {
+        outcome.textContent = "Player Wins";
+        pScore++;
+        round++;
+        updateScore();
+        return;
+      }
+    }
+    //Check for Scissors
+    if (playerChoice === "scissors") {
+      if (computerChoice === "rock") {
+        outcome.textContent = "Computer Wins";
+        cScore++;
+        round++;
+        updateScore();
+        return;
+      } else {
+        outcome.textContent = "Player Wins";
+        pScore++;
+        round++;
+        updateScore();
+        return;
+      }
+    }
+  };
 
-// one game of rock, paper, sissors
-function playRound(playerChoice, computerChoice) {
-  if (playerChoice.toLowerCase() === computerChoice.toLowerCase()) {
-    round++;
-    return "It's a tie!";
-  } else if (playerChoice === "rock" && computerChoice === "scissors") {
-    playerWins++, round++;
-    return "Rock beats scissors! Player wins!";
-  } else if (playerChoice === "paper" && computerChoice === "scissors") {
-    computerWins++, round++;
-    return "Scissors beats paper! Computer wins!";
-  } else if (playerChoice === "scissors" && computerChoice === "rock") {
-    computerWins++, round++;
-    return "Rock beats scissors! Computer wins!";
-  } else if (playerChoice === "rock" && computerChoice === "paper") {
-    computerWins++, round++;
-    return "Paper beats rock! Computer wins!";
-  } else if (playerChoice === "paper" && computerChoice === "rock") {
-    computerWins++, round++;
-    return "Rock beats paper! Computer wins!";
-  } else if (playerChoice === "scissors" && computerChoice === "paper") {
-    playerWins++, round++;
-    return "Scissors beats paper! Player wins!";
-  }
-}
+  //Is call all the inner function
+  playMatch();
+};
 
-// 5 round game
-function game(playerChoice, computerChoice) {
-  // scoreboard
-  let message = `Round ${round}. SCORE [Player: ${playerWins}] [Computer: ${computerWins}]`;
-
-  // game
-  console.log(message);
-  console.log(playRound(playerChoice, computerChoice));
-}
-
-console.log(game(playerChoice, computerChoice));
-
-document.getElementById("rockBtn").addEventListener("click", playRound);
+//start the game function
+game();
