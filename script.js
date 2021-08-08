@@ -1,5 +1,31 @@
 
-const updateScore = () => {
+const game = () => {
+  let pScore = 0;
+  let cScore = 0;
+  let round = 0;
+
+  //Play Match
+  const playMatch = () => {
+    const options = document.querySelectorAll(".btn");
+
+    //Computer Options
+    const computerOptions = ["rock", "paper", "scissors"];
+
+    options.forEach((option) => {
+      option.addEventListener("click", function () {
+        //Computer Choice
+        const computerNumber = Math.floor(Math.random() * 3);
+        const computerChoice = computerOptions[computerNumber];
+
+        setTimeout(() => {
+          //Here is where we call compare hands
+          compareHands(this.textContent, computerChoice);
+        });
+      });
+    });
+  };
+
+  const updateScore = () => {
     const playerScore = document.querySelector(".player-score");
     const computerScore = document.querySelector(".computer-score");
     const rounds = document.querySelector(".round");
